@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>puny.li - shortening urls</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/flatly/bulmaswatch.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="hero is-medium is-link is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    finite.li
+                </h1>
+                <h2 class="subtitle">
+                    Shortening urls
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <main id="app">
+        <form v-if="!success" class="url-shorten-form" @submit.prevent="createPuny">
+            <div class="field">
+                <div class="field is-normal">
+                    <label class="label is-large">URL</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input v-model="url" class="input is-large" type="text" placeholder="http://example.com" required>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                    <div class="field is-normal">
+                        <label class="label is-large">Name</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input v-model="name" class="input is-large" type="text" placeholder="ugly-monkey" required>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-div">
+                    <button type="submit" class="button is-link is-large" href="">Shorten URL</button>               
+                </div>
+        </form>
+        <div v-else class="link-container">
+            <h1 class="title"><a href="'/'+name" target="_blank">https://localhost/5000/{{name}}</a></h1>
+        </div>
+       
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
